@@ -7,11 +7,11 @@ git clone https://github.com/tjduigna/stronks.git
 cd stronks
 pip install -r requirements.txt
 cd stronks
-python app.py
+streamlit run app.py
 ```
 
 No need to install `stronks` as a python package
-as `app.py` is a stand-alone script.
+as `app.py` is a stand-alone script run by `streamlit`.
 
 
 Features
