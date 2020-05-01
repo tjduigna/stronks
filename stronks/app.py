@@ -60,7 +60,6 @@ def make_chart(data):
                   .encode(y='Spread:Q', color='Ticker:N')
                   .add_selection(scales))
 
-
     return alt.layer(candle, stick, spread).properties(width=600, height=600)
 
 
@@ -72,7 +71,7 @@ def main():
     intervals = ['1m', '2m', '5m', '15m', '30m', '60m', '90m',
                  '1d', '5d', '1wk', '1mo', '3mo']
 
-    st.sidebar.markdown("# StonkVieu")
+    header = st.sidebar.markdown("# StonkVieu")
     ticker = st.sidebar.text_input("Tickers (space separated)", value="SPY")
     interval = st.sidebar.selectbox("Interval", intervals, index=7)
 
@@ -89,6 +88,8 @@ def main():
     if check:
         st.balloons()
 
+    print("dates passed to fetch data")
+    print(start, end)
     data = fetch_ticker_data(ticker, start, end, interval)
     chart = make_chart(data)
     st.write(chart)
